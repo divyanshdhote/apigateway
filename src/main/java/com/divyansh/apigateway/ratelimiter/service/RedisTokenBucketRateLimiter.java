@@ -8,8 +8,8 @@ public class RedisTokenBucketRateLimiter implements RateLimiter {
 
     private final RedisRateLimiter redis;
 
-    private final int capacity = 3;
-    private final int refillRate = 1; // tokens per second
+    private final int capacity = 1000;
+    private final int refillRate = 500; // tokens per second
 
     public RedisTokenBucketRateLimiter(RedisRateLimiter redis) {
         this.redis = redis;
