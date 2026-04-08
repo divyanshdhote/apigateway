@@ -50,13 +50,13 @@ public class RedisTokenBucketRateLimiter implements RateLimiter {
 
             redis.set(key, tokens + ":" + lastRefillTime);
 
-            System.out.println("ALLOW → " + key + " | tokens=" + tokens);
+            System.out.println("ALLOW IN REDIS→ " + key + " | tokens=" + tokens);
             return true;
         }
 
         redis.set(key, tokens + ":" + lastRefillTime);
 
-        System.out.println("REJECT → " + key + " | tokens=" + tokens);
+        System.out.println("REJECT IN REDIS→ " + key + " | tokens=" + tokens);
         return false;
     }
 }
